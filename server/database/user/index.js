@@ -23,7 +23,7 @@ UserSchema.methods.generateJwtToken = function () {
 };
 
 UserSchema.statics.findByEmailAndPhone = async ({ email, phoneNumber }) => {
-  // check whether email exist
+  // check whether email And phoneNumber exist
   const checkUserByEmail = await UserModel.findOne({ email });
   const checkUserByPhone = await UserModel.findOne({ phoneNumber });
 
@@ -32,6 +32,22 @@ UserSchema.statics.findByEmailAndPhone = async ({ email, phoneNumber }) => {
   }
 
   return false;
+};
+
+UserSchema.statics.findByEmailAndPassword = async ({ email, password }) => {
+  // check whether email exist
+  const user = await UserModel.findOne({ email });
+  if (!user) throw new Error("User does not exist!!!!!");
+
+  //compare the password
+  const doesPasswordMatch = await bcrypt.compare(
+    password, 
+    user.password
+  );
+
+  if (!doesPasswordMatch) throw new Error("Invalid Password!!!");
+
+  return user;
 };
 
 UserSchema.pre("save", function (next) {

@@ -19,9 +19,9 @@ Method Post
 Router.post("/signup", async (req, res) => {
   try {
     await UserModel.findByEmailAndPhone(req.body.credentials);
-    const newUser = await UserModel.create(req.body.credentials);    // save to DB
-    const token = newUser.generateJwtToken();// generate JWT auth token
-    return res.status(200).json({ token, status: "success" });//return
+    const newUser = await UserModel.create(req.body.credentials); // save to DB
+    const token = newUser.generateJwtToken(); // generate JWT auth token
+    return res.status(200).json({ token, status: "success" }); //return
   } catch (error) {
     return res.status(500).json({ error: error.message });
   }
@@ -34,5 +34,17 @@ Params None
 Access Public
 Method Post
 */
+
+Router.post("/signin", async (req, res) => {
+  try {
+    const user = await UserModel.findByEmailAndPassword(
+      req.body.credentials
+    );
+    const token = user.generateJwtToken(); // generate JWT auth token
+    return res.status(200).json({ token, status: "success" }); //return
+  } catch (error) {
+    return res.status(500).json({ error: error.message });
+  }
+});
 
 export default Router;
