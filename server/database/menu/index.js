@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const MenuSchema = new.mongoose.Schema(
+const MenuSchema = new mongoose.Schema(
   {
     menus: [
       {

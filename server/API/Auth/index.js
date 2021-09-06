@@ -2,6 +2,7 @@
 import express from "express";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
+import passport from "passport";
 
 //Models
 import { UserModel } from "../../database/user";
@@ -37,14 +38,46 @@ Method Post
 
 Router.post("/signin", async (req, res) => {
   try {
-    const user = await UserModel.findByEmailAndPassword(
-      req.body.credentials
-    );
+    const user = await UserModel.findByEmailAndPassword(req.body.credentials);
     const token = user.generateJwtToken(); // generate JWT auth token
     return res.status(200).json({ token, status: "success" }); //return
   } catch (error) {
     return res.status(500).json({ error: error.message });
   }
 });
+
+/*
+Route  /google
+Des    Google Signin
+Params None
+Access Public
+Method Get
+*/
+
+Router.get(
+  "/google",
+  passport.authenticate("google", {
+    scope: [
+      "https://www.googleapis.com/auth/userinfo.profile",
+      "https://www.googleapis.com/auth/userinfo.profile",
+    ],
+  })
+);
+
+/*
+Route  /google/callback
+Des    Google Signin Callback
+Params None
+Access Public
+Method Get
+*/
+
+Router.get(
+  "/google/callback",
+  passport.authenticate("google", { failureRedirect: "/" }),
+  (req, res) => {
+    return res.json({ token: req.session.passport.user.token });
+  }
+);
 
 export default Router;
