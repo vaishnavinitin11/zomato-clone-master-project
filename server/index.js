@@ -49,5 +49,5 @@ zomato.get("/", (req, res) => res.json({ message: "Setup success" }));
 zomato.listen(4000, () =>
   ConnectDB()
     .then(() => console.log("Server is running 🚀"))
-    .catch((error) => error.message)
+    .catch(() => "Server is running, but database connection failed... ")
 );
