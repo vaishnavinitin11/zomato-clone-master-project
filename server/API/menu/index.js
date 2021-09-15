@@ -5,6 +5,12 @@ import passport from "passport";
 // Database Model
 import { MenuModel, ImageModel } from "../../database/allModels";
 
+// Validations
+import {
+  ValidateMenulistId,
+  ValidateMenuimagesId,
+} from "../../validation/menu";
+
 const Router = express.Router();
 
 /*
@@ -17,6 +23,7 @@ Method GET
 
 Router.get("/list/:_id", async (req, res) => {
   try {
+    await ValidateMenulistId(req.params);
     const { _id } = req.params;
     const menus = await MenuModel.findById(_id);
 
@@ -35,6 +42,7 @@ Method GET
 */
 Router.get("/image/:_id", async (req, res) => {
   try {
+    await ValidateMenuimagesId(req.params);
     const { _id } = req.params;
     const menus = await ImageModel.findOne(_id);
 
@@ -43,4 +51,4 @@ Router.get("/image/:_id", async (req, res) => {
     return res.status(500).json({ error: error.message });
   }
 });
- export default Router;
+export default Router;
