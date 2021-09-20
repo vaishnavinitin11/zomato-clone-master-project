@@ -4,7 +4,6 @@ import { RiShoppingBag3Line, RiFootprintLine } from "react-icons/ri";
 import { GiWineBottle } from "react-icons/gi";
 import { IoNutritionOutline } from "react-icons/io5";
 import classnames from "classnames";
-import classNames from "classnames";
 
 const MobileTabs = () => {
   const [allTypes] = useState([
@@ -34,7 +33,7 @@ const MobileTabs = () => {
 
   return (
     <>
-      <div className="lg:hidden bg-white shadow-lg p-3 fixed bottom-0 z-10 w-full flex items-center justify-between ">
+      <div className="lg:hidden bg-white shadow-lg p-3 fixed bottom-0 z-10 w-full flex items-center justify-between md:justify-evenly text-gray-500 border">
         {allTypes.map((items) => (
           <Link to={`/${items.id}`}>
             <div
@@ -104,7 +103,7 @@ const LargeTabs = () => {
 
   return (
     <>
-      <div className="hidden lg:flex container px-20 mx-auto gap-14">
+      <div className="hidden lg:flex container px-20 my-8 mx-auto gap-14">
         {allTypes.map((items) => (
           <Link to={`/${items.id}`}>
             <div
@@ -116,7 +115,7 @@ const LargeTabs = () => {
               )}
             >
               <div
-                className={classNames(
+                className={classnames(
                   "w-16 h-16 bg-gray-100 p-4 rounded-full",
                   { [`bg-${items.activeColor}-100`]: type === items.id }
                 )}
