@@ -21,7 +21,7 @@ const PictureCarouselCard = () => {
           />
         </div>
 
-        <div className="absolute w-full left-4 bottom-2 text-white">
+        <div className="absolute w-full left-6 bottom-2 text-white">
           <h4 className="z-10">Trending This Week</h4>
           <h6 className="z-10 flex items-center">
             30 Places <IoMdArrowDropright />
