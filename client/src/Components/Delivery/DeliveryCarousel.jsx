@@ -52,16 +52,6 @@ const DeliveryCarousel = () => {
         "https://b.zmtcdn.com/data/homepage_dish_data/4/eb2ef145c0fcad44dbb4ed26aad1527d.png",
       title: "Rolls",
     },
-    {
-      image:
-        "https://b.zmtcdn.com/data/dish_images/708d4180bf5974ae0665b5becb65f0521612524611.png",
-      title: "Ice Cream",
-    },
-    {
-      image:
-        "https://b.zmtcdn.com/data/dish_images/c598d69f4864f3cba4b0de2d8efc0e521613059032.png",
-      title: "Pizza",
-    },
   ];
 
   const settings = {
