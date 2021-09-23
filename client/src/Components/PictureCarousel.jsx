@@ -6,7 +6,6 @@ const PictureCarouselCard = () => {
     <>
       <div className="w-full h-64 relative px-4 overflow-hidden">
         <div className="w-full h-full relative ">
-          {""}
           <img
             src="https://b.zmtcdn.com/data/reviews_photos/ca8/2519a3cccfb495e434264e0d46c83ca8_1568731665.jpg"
             alt="food"
