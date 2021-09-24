@@ -8,6 +8,7 @@ import RestaurantNavbar from "../Components/Navbar/restaurantNavbar";
 import ImageGrid from "../Components/Restaurant/imageGrid";
 import InfoButtons from "../Components/Restaurant/InfoButtons";
 import Restaurantinfo from "../Components/Restaurant/Restaurantinfo";
+import TabContainer from "../Components/Restaurant/Tabs";
 
 const RestaurantLayout = () => {
   return (
@@ -44,6 +45,7 @@ const RestaurantLayout = () => {
             <RiShareForwardLine /> Share
           </InfoButtons>
         </div>
+        <TabContainer />
       </div>
     </>
   );
