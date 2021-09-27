@@ -3,13 +3,13 @@ import Slider from "react-slick";
 import { Link, useParams } from "react-router-dom";
 import { IoMdArrowDropright } from "react-icons/io";
 import ReactStars from "react-star-rating-component";
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 
 // componennts
 import MenuCollection from "../../Components/Restaurant/MenuCollection";
 import { NextArrow, PrevArrow } from "../../Components/carouselArrow";
 import MenuSimilarRestaurantcard from "../../Components/Restaurant/MenuSimilarRestaurantcard";
 import ReviewCard from "../../Components/Restaurant/Reviews/reviewCard";
+import Mapview from "../../Components/Restaurant/Mapview";
 
 const Overview = () => {
   const [menuImage, setMenuImages] = useState({ images: [] });
@@ -19,7 +19,7 @@ const Overview = () => {
     infinite: false,
     speed: 500,
     slidesToShow: 3,
-    slidesToScroll: 1,
+    slidesToScroll: 3,
     initialSlide: 0,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
@@ -131,6 +131,14 @@ const Overview = () => {
               activeColor="#ffd700"
             />
           </div>
+          <div className="my-4 w-full md:hidden flex flex-col gap-4">
+          <Mapview
+            title="Focaccia Fellas"
+            phno="+919833701931"
+            mapLocation={[19.116106131480507, 72.88434901872225]}
+            address="K1, C-28, Ground Floor, Raj Industrail Estate Unit, Marol Military Road, Marol, Mumbai"
+          />
+          </div>
           <div className="my-4 flex flex-col gap-4">
             <ReviewCard />
             <ReviewCard />
@@ -139,32 +147,14 @@ const Overview = () => {
         </div>
         <aside
           style={{ height: "fit-content" }}
-          className="hidden md:block md:w-4/12 sticky top-2 bg-white p-3 rounded-xl shadow-md"
+          className="hidden md:flex md:w-4/12 sticky top-2 bg-white p-3 rounded-xl shadow-md flex flex-col gap-4"
         >
-          <div>
-            <h4 className="text-xl font-medium">Call </h4>
-            <h5 className="text-zomato-400 font-medium">+917030950656</h5>
-          </div>
-          <div>
-            <h4 className="text-xl font-medium">Direction</h4>
-            <div className="w-full h-48">
-              <MapContainer
-                center={[19.07993137799978, 72.90917946877431]}
-                zoom={13}
-                scrollWheelZoom={false}
-              >
-                <TileLayer
-                  attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                  url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                />
-                <Marker position={[19.07993137799978, 72.90917946877431]}>
-                  <Popup>
-                    A pretty CSS3 popup. <br /> Easily customizable.
-                  </Popup>
-                </Marker>
-              </MapContainer>
-            </div>
-          </div>
+          <Mapview
+            title="Focaccia Fellas"
+            phno="+919833701931"
+            mapLocation={[19.116106131480507, 72.88434901872225]}
+            address="K1, C-28, Ground Floor, Raj Industrail Estate Unit, Marol Military Road, Marol, Mumbai"
+          />
         </aside>
       </div>
     </>
