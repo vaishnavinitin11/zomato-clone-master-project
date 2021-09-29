@@ -76,8 +76,8 @@ export default function ReviewModal({
                       type="text"
                       id="subject"
                       placeholder="amazing food"
-                    //   value={reviewData.subject}
-                    //   onChange={handlechange}
+                      //   value={reviewData.subject}
+                      //   onChange={handlechange}
                       className="w-full border border-gray-400 px-3 py-2 rounded-lg focus:outline-none focus:border-zomato-400"
                     />
                   </div>
@@ -87,8 +87,8 @@ export default function ReviewModal({
                       id="reviewText"
                       placeholder="amazing food"
                       rows="5"
-                    //   value={reviewData.reviewText}
-                    //   onChange={handlechange}
+                      //   value={reviewData.reviewText}
+                      //   onChange={handlechange}
                       className="w-full border border-gray-400 px-3 py-2 rounded-lg focus:outline-none focus:border-zomato-400"
                     ></textarea>
                   </div>

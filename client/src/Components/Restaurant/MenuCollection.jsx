@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-// import ImageViewer from "react-simple-image-viewer";
+import ImageViewer from "react-simple-image-viewer";
 
 const MenuCollection = (props) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -9,14 +9,16 @@ const MenuCollection = (props) => {
 
   return (
     <>
-      {/* {isMenuOpen && (
+      {isMenuOpen && (
         <ImageViewer
           src={props.image}
           currentIndex={CurrentImg}
           disableScroll={false}
           onClose={closeViewer}
+          // onClickPrev={prevImage}
+          // onClickNext={NextImage}
         />
-      )} */}
+      )}
       <div
         className="w-32 h-32 md:w-48 flex flex-col md:h-48"
         onClick={openViewer}

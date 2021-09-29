@@ -72,7 +72,15 @@ const Overview = () => {
             </Link>
           </div>
           <div className="flex flex-wrap gap-3 my-4">
-            <MenuCollection menuTitle="Menu" pages="3" image={menuImage} />
+            <MenuCollection
+              menuTitle="Menu"
+              pages="3"
+              image={[
+                "https://b.zmtcdn.com/data/menus/649/18140649/c54628c7e0def4570619923e4a2e0644.jpg",
+                "https://b.zmtcdn.com/data/menus/649/18140649/4f3a88321f4d2a693fc8705ab20e813d.jpg",
+                "https://b.zmtcdn.com/data/menus/649/18140649/99ad32bd8dff02162536594e46b9f8e8.jpg",
+              ]}
+            />
           </div>
           <h4 className="text-lg font-medium my-4">Cuisines</h4>
           <div className="flex flex-wrap gap-2">
@@ -132,12 +140,12 @@ const Overview = () => {
             />
           </div>
           <div className="my-4 w-full md:hidden flex flex-col gap-4">
-          <Mapview
-            title="Focaccia Fellas"
-            phno="+919833701931"
-            mapLocation={[19.116106131480507, 72.88434901872225]}
-            address="K1, C-28, Ground Floor, Raj Industrail Estate Unit, Marol Military Road, Marol, Mumbai"
-          />
+            <Mapview
+              title="Focaccia Fellas"
+              phno="+919833701931"
+              mapLocation={[19.116106131480507, 72.88434901872225]}
+              address="K1, C-28, Ground Floor, Raj Industrail Estate Unit, Marol Military Road, Marol, Mumbai"
+            />
           </div>
           <div className="my-4 flex flex-col gap-4">
             <ReviewCard />
