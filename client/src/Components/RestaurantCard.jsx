@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { TiStar } from "react-icons/ti";
 import { getImage } from "../Redux/Reducer/Image/Image.action";
@@ -21,7 +22,7 @@ const RestaurantCard = (props) => {
   }, [props.photos]);
 
   return (
-    <>
+    <Link to={`/restaurant/${props._id}`} className="w-full">
       <div className="bg-white p-4 w-full mb-4 rounded-2xl transition duration-700 ease-in-out hover:shadow-lg md:w-1/2 lg:w-1/3">
         <div className="w-full h-56 lg:h-64 relative">
           <div className="absolute w-full flex bottom-4 items-end justify-between">
@@ -60,7 +61,7 @@ const RestaurantCard = (props) => {
           </div>
         </div>
       </div>
-    </>
+    </Link>
   );
 };
 
